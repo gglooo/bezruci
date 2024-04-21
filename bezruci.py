@@ -52,7 +52,7 @@ def send_email(availability, searched_month):
     msg.attach(MIMEText(f"Hraje se {DESIRED_PLAY}!\nPředstavení s možností koupit lístek se hraj{'í' if len(availability) > 1 else 'e'}: {', '.join(map(lambda a: a + '.', availability))} v měsíci {MONTHS[searched_month - 1]}\n{URL + str(searched_month)}", 'plain'))
     msg["Subject"] = f"Hraje se {DESIRED_PLAY}!"
     msg["From"] = "play.cz.studiomp@gmail.com"
-    msg["To"] = "glos2001@seznam.cz"
+    msg["To"] = "glos2001@seznam.cz,gym.helena@gmail.com"
 
     try:
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
