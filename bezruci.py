@@ -65,9 +65,9 @@ def send_email(availability, searched_month):
 
 def main():
     while True:
-        print("Kontroluju dostupnost hry", DESIRED_PLAY)
-        
         searched_month = FOUND_DATES[-1] + 1 if len(FOUND_DATES) else datetime.now().month + 1
+        print("Kontroluju dostupnost hry", DESIRED_PLAY, "v měsíci", MONTHS[searched_month - 1])
+
         availability = check_availability(searched_month)
         
         if len(availability) > 0:
@@ -75,7 +75,7 @@ def main():
         else:
             print("Hra", DESIRED_PLAY, "není v měsíci", MONTHS[searched_month - 1], "k dispozici")
 
-        time.sleep(60 * 60 + random.randint(-3, 13)) # 1 hour
+        time.sleep(60 * (60 + random.randint(-3, 13))) # 1 hour
 
 if __name__ == "__main__":
     main()
